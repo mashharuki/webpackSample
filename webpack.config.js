@@ -1,7 +1,10 @@
 // webpack用の設定ファイル
 const path = require('path');
+// Webpack本体を読み込む
+const webpack = require('webpack');
 
 module.exports = {
+    watch: true,
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'public'),
@@ -26,5 +29,11 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    // プラグインの設定を追加
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            extractComments: true
+        })
+    ]
 };
