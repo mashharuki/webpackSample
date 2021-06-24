@@ -13,6 +13,17 @@ module.exports = {
             {
                 test: /\.txt$/,
                 use: 'raw-loader'
+            },
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env', 'react']
+                    }
+                },
+                // node_modulesフォルダ以下はloaderの対象外とする。
+                exclude: /node_modules/
             }
         ]
     }
