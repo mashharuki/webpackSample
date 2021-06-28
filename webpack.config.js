@@ -10,10 +10,8 @@ module.exports = {
         filename: 'bundle.js'
     },
     // プラグインの設定を追加
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Plugin generate page',
-            template: 'src/root.html'
-        })
-    ]
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        port: 9000
+    }
 };
